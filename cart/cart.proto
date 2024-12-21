@@ -1,0 +1,26 @@
+syntax = "proto3";
+package cart;
+
+message AddProductToCartRequest {
+    int64 product = 1;
+    int32 num = 2;
+    string token = 3;
+}
+
+message AddProductToCartResponse {
+    int64 product = 1;
+    int32 num = 2;
+}
+
+message GetCartProductsRequest {
+    string token = 1;
+}
+
+message GetCartProductsResponse {
+    repeated AddProductToCartResponse products = 1;
+}
+
+service CartService {
+    rpc AddProductToCart (AddProductToCartRequest) returns (AddProductToCartResponse);
+    rpc GetCartProducts (GetCartProductsRequest) returns (GetCartProductsResponse);
+}

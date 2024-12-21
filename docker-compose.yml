@@ -1,0 +1,16 @@
+services:
+  auth-server:
+    container_name: auth-server
+    build: 
+      context: .
+      dockerfile: auth.Dockerfile
+    ports:
+      - "8001:8001"
+  cart-server:
+    container_name: cart-server
+    build: 
+      context: .
+      dockerfile: cart.Dockerfile
+    ports:
+      - "8002:8002"
+    
